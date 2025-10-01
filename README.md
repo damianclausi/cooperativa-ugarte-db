@@ -22,8 +22,8 @@ docker run -d --name cooperativa-pgadmin -p 8080:80 \
 ### Usando Docker Compose
 
 ```bash
-git clone [este-repositorio]
-cd PPIV_DB
+git clone https://github.com/damianclausi/cooperativa-ugarte-db.git
+cd cooperativa-ugarte-db
 docker-compose up -d
 ```
 
