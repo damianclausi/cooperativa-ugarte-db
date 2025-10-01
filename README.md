@@ -95,7 +95,7 @@ WHERE estado IN ('NUEVO', 'EN_PROCESO');
 ## Docker Hub
 
 **Imagen:** `damian2k/cooperativa-ugarte-db`  
-**Tags:** `latest`, `1.1`, `1.0`  
+**Tags:** `latest`, `1.2`, `1.1`, `1.0`  
 **Tamaño:** ~399MB  
 **Base:** PostgreSQL 15-alpine
 
