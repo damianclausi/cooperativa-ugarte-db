@@ -1,0 +1,45 @@
+services:
+  postgres:
+    image: damian2k/cooperativa-ugarte-db:latest
+    container_name: cooperativa_ugarte_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: cooperativa2024
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cooperativa_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U coop_user -d cooperativa_ugarte_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: cooperativa_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@cooperativa-ugarte.com.ar
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - cooperativa_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+networks:
+  cooperativa_network:
+    driver: bridge

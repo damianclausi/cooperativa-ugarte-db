@@ -1,0 +1,74 @@
+# Variables de entorno
+.env
+.env.local
+.env.production
+
+# Docker
+.env
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
+
+# Backups
+*.sql
+backups/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Directorios de respaldos
+backups/
+*.sql
+*.dump
+
+# Archivos temporales
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Docker
+.docker/
+
+# Uploads y archivos subidos
+uploads/
+attachments/
+
+# Cache y build
+node_modules/
+dist/
+build/
+.cache/
+
+# Certificados y claves
+*.pem
+*.key
+*.crt
+*.p12
+
+# Datos de pgAdmin
+pgadmin_data/
+
+# Configuraciones locales específicas
+docker-compose.override.yml
+docker-compose.local.yml
