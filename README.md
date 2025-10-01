@@ -138,4 +138,4 @@ docker-compose up -d
 
 ---
 
-**Desarrollado para sistemas de gestión de cooperativas eléctricas argentinas.**
+**Desarrollado para sistemas de gestión de cooperativa eléctrica - PPIV.**
