@@ -208,18 +208,18 @@ INSERT INTO usuario (empleado_id, email, hash_pass) VALUES
 -- Asignar roles a usuarios (Cooperativa Eléctrica)
 INSERT INTO usuario_rol (usuario_id, rol_id) VALUES
 -- Clientes/Socios
-(1, 3), -- Juan Carlos Pérez como CLIENTE
-(2, 3), -- María Elena González como CLIENTE  
-(3, 3), -- Roberto Daniel Martínez como CLIENTE
-(4, 3), -- Ana Sofía Rodríguez como CLIENTE
-(5, 3), -- Carlos Alberto Fernández como CLIENTE
-(6, 3), -- Laura Beatriz López como CLIENTE
+(1, 1), -- Juan Carlos Pérez como CLIENTE
+(2, 1), -- María Elena González como CLIENTE  
+(3, 1), -- Roberto Daniel Martínez como CLIENTE
+(4, 1), -- Ana Sofía Rodríguez como CLIENTE
+(5, 1), -- Carlos Alberto Fernández como CLIENTE
+(6, 1), -- Laura Beatriz López como CLIENTE
 -- Empleados
-(7, 4), -- Pedro Electricista como TECNICO
-(8, 5), -- Ana Supervisora como SUPERVISOR
-(9, 6), -- Carmen Atención como ATENCION_CLIENTE
-(10, 1), -- Mónica Administradora como ADMIN
-(11, 4); -- Daniel Emergencias como TECNICO
+(7, 2), -- Pedro Electricista como OPERARIO
+(8, 2), -- Ana Supervisora como OPERARIO
+(9, 2), -- Carmen Atención como OPERARIO
+(10, 3), -- Mónica Administradora como ADMIN
+(11, 2); -- Daniel Emergencias como OPERARIO
 
 -- Insertar movimientos de stock (Materiales Eléctricos)
 INSERT INTO mov_stock (material_id, tipo, cantidad, referencia, observaciones) VALUES

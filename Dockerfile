@@ -4,19 +4,20 @@ FROM postgres:15-alpine
 # Información del mantenedor
 LABEL maintainer="Cooperativa Eléctrica Gobernador Ugarte"
 LABEL description="Base de datos PostgreSQL para sistema de gestión cooperativa eléctrica"
-LABEL version="1.0"
+LABEL version="1.3"
 
 # Variables de entorno por defecto
 ENV POSTGRES_DB=cooperativa_ugarte_db
 ENV POSTGRES_USER=coop_user
-ENV POSTGRES_PASSWORD=coop_password
+ENV POSTGRES_PASSWORD=cooperativa2024
 ENV TZ=America/Argentina/Buenos_Aires
 
 # Copiar scripts de inicialización en orden correcto
-COPY init.sql /docker-entrypoint-initdb.d/01-init.sql
-COPY scripts/procedimientos.sql /docker-entrypoint-initdb.d/02-procedimientos.sql
-COPY scripts/consultas_cooperativa.sql /docker-entrypoint-initdb.d/03-consultas.sql
-COPY scripts/datos_prueba.sql /docker-entrypoint-initdb.d/04-datos.sql
+COPY 01-schema.sql /docker-entrypoint-initdb.d/01-schema.sql
+COPY scripts/02-procedimientos.sql /docker-entrypoint-initdb.d/02-procedimientos.sql
+COPY scripts/03-consultas.sql /docker-entrypoint-initdb.d/03-consultas.sql
+COPY scripts/04-datos-prueba.sql /docker-entrypoint-initdb.d/04-datos-prueba.sql
+COPY scripts/05-usuarios.sql /docker-entrypoint-initdb.d/05-usuarios.sql
 
 # Configurar timezone
 RUN apk add --no-cache tzdata && \

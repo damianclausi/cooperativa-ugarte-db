@@ -12,7 +12,7 @@ docker-compose.override.yml
 logs/
 
 # Backups
-*.sql
+backup*.sql
 backups/
 
 # IDE
@@ -31,7 +31,7 @@ Thumbs.db
 
 # Directorios de respaldos
 backups/
-*.sql
+backup*.sql
 *.dump
 
 # Archivos temporales

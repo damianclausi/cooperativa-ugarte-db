@@ -393,15 +393,11 @@ INSERT INTO prioridad (nombre, orden, color) VALUES
 ('Media', 2, '#FF8C00'),
 ('Baja', 3, '#00AA00');
 
--- Insertar roles de usuario
+-- Insertar roles de usuario (SOLO 3 ROLES)
 INSERT INTO rol (nombre, descripcion) VALUES
-('ADMIN', 'Administrador del sistema'),
-('EMPLEADO', 'Empleado de la empresa'),
-('CLIENTE', 'Cliente/Socio del servicio'),
-('TECNICO', 'Técnico de campo'),
-('SUPERVISOR', 'Supervisor de cuadrillas'),
-('FACTURACION', 'Personal de facturación'),
-('ATENCION_CLIENTE', 'Personal de atención al cliente');
+('CLIENTE', 'Socio de la cooperativa'),
+('OPERARIO', 'Empleado operativo'),
+('ADMIN', 'Administrador del sistema');
 
 -- Insertar materiales eléctricos básicos
 INSERT INTO material (codigo, descripcion, unidad, stock_actual, stock_minimo, costo_unitario) VALUES
