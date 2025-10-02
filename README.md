@@ -1,148 +1,431 @@
-# Cooperativa Eléctrica "Gobernador Ugarte"# Cooperativa Eléctrica "Gobernador Ugarte" - Base de Datos# 🏢 Cooperativa Eléctrica "Gobernador Ugarte" - Base de Datos# Cooperativa Eléctrica "Gobernador Ugarte"
+# Cooperativa Eléctrica "Gobernador Ugarte"# Cooperativa Eléctrica "Gobernador Ugarte"# Cooperativa Eléctrica "Gobernador Ugarte"# Cooperativa Eléctrica "Gobernador Ugarte" - Base de Datos# 🏢 Cooperativa Eléctrica "Gobernador Ugarte" - Base de Datos# Cooperativa Eléctrica "Gobernador Ugarte"
 
 
 
-Base de datos PostgreSQL completa y lista para usar, diseñada específicamente para sistemas de gestión de cooperativas eléctricas.
+Base de datos PostgreSQL para el sistema de gestión de cooperativa eléctrica de la PPIV.
 
 
 
-[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)Base de datos PostgreSQL completa y lista para usar, diseñada específicamente para sistemas de gestión de cooperativas eléctricas.
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)Base de datos PostgreSQL lista para usar para sistemas de gestión de cooperativas eléctricas.
 
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15--alpine-336791?logo=postgresql)](https://www.postgresql.org/)
 
 
 
-> **Proyecto académico:** Prácticas Profesionales IV - IFTS N° 29
+> Proyecto académico - Prácticas Profesionales IV - IFTS N° 29
 
-**Proyecto académico:** Prácticas Profesionales IV - IFTS N° 29Base de datos PostgreSQL completa y lista para usar, diseñada específicamente para sistemas de gestión de cooperativas eléctricas.Base de datos PostgreSQL completa para gestión de cooperativa eléctrica con Docker.
-
----
-
-
-
-## Características
-
-[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)
-
-- **Schema completo** con 22 tablas interrelacionadas
-
-- **Sistema de autenticación** con bcrypt y 3 roles (Cliente, Operario, Admin)[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15--alpine-336791?logo=postgresql)](https://www.postgresql.org/)
-
-- **19 usuarios de prueba** listos para testing
-
-- **Funciones especializadas** para cooperativas eléctricas> 🎓 **Proyecto académico:** Prácticas Profesionales IV - IFTS N° 29[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)
-
-- **Vistas optimizadas** para consultas complejas
-
-- **Datos de ejemplo** realistas (socios, facturas, reclamos, órdenes de trabajo)## Características
-
-- **Docker ready** - ejecutar en segundos
-
-
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)Base de datos PostgreSQL completa y lista para usar, diseñada específicamente para sistemas de gestión de cooperativas eléctricas.
 
 ---
 
-- Schema completo con 22 tablas interrelacionadas
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15--alpine-336791?logo=postgresql)](https://www.postgresql.org/)
 
 ## Inicio Rápido
 
-- Sistema de autenticación con bcrypt y 3 roles (Cliente, Operario, Admin)[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)## Inicio Rápido
 
-### Opción 1: Docker Run (Más simple)
-
-- 19 usuarios de prueba listos para testing
 
 ```bash
 
-docker run -d \- Funciones especializadas para cooperativas eléctricas[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15--alpine-336791?logo=postgresql)](https://www.postgresql.org/)
+docker run -d \> Proyecto académico - Prácticas Profesionales IV - IFTS N° 29
 
   --name cooperativa-db \
 
-  -p 5432:5432 \- Vistas optimizadas para consultas complejas
+  -p 5432:5432 \[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)Base de datos PostgreSQL completa y lista para usar, diseñada específicamente para sistemas de gestión de cooperativas eléctricas.
 
   damian2k/cooperativa-ugarte-db:latest
 
-```- Datos de ejemplo realistas (socios, facturas, reclamos, órdenes de trabajo)### Usando Docker Hub (Recomendado)
+```---
 
 
 
-### Opción 2: Docker Compose (Recomendado)- Docker ready - ejecutar en segundos
+La base de datos está lista con datos de prueba.[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15--alpine-336791?logo=postgresql)](https://www.postgresql.org/)
 
 
 
-```bash## ✨ Características
+---## Inicio Rápido
 
-git clone https://github.com/damianclausi/cooperativa-ugarte-db.git
 
-cd cooperativa-ugarte-db## Inicio Rápido
 
-docker-compose up -d
+## Credenciales
+
+
 
 ``````bash
 
+Host:     localhost:5432
 
-
----### Opción 1: Docker Run
-
-
-
-## Credenciales- ✅ **Schema completo** con 22 tablas interrelacionadas# Solo base de datos
-
-
-
-### Base de Datos PostgreSQL```bash
-
-
-
-```docker run -d \- ✅ **Sistema de autenticación** con bcrypt y 3 roles (Cliente, Operario, Admin)docker run -d --name cooperativa-db -p 5432:5432 damian2k/cooperativa-ugarte-db:latest
-
-Host:     localhost
-
-Puerto:   5432  --name cooperativa-db \
+Database: cooperativa_ugarte_dbdocker run -d \> **Proyecto académico:** Prácticas Profesionales IV - IFTS N° 29
 
 Usuario:  coop_user
 
-Password: cooperativa2024  -p 5432:5432 \- ✅ **19 usuarios de prueba** listos para testing
+Password: cooperativa2024  --name cooperativa-db \
 
-Database: cooperativa_ugarte_db
+```
 
-```  damian2k/cooperativa-ugarte-db:latest
+  -p 5432:5432 \**Proyecto académico:** Prácticas Profesionales IV - IFTS N° 29Base de datos PostgreSQL completa y lista para usar, diseñada específicamente para sistemas de gestión de cooperativas eléctricas.Base de datos PostgreSQL completa para gestión de cooperativa eléctrica con Docker.
 
+### Conectar
 
-
-### Conexión Rápida```- ✅ **Funciones especializadas** para cooperativas eléctricas# Con pgAdmin
-
-
+  damian2k/cooperativa-ugarte-db:latest
 
 ```bash
 
-docker exec -it cooperativa-db psql -U coop_user -d cooperativa_ugarte_db
+docker exec -it cooperativa-db psql -U coop_user -d cooperativa_ugarte_db```---
 
-```### Opción 2: Docker Compose- ✅ **Vistas optimizadas** para consultas complejasdocker run -d --name cooperativa-pgadmin -p 8080:80 \
-
-
-
-### String de Conexión
+```
 
 
 
-``````bash- ✅ **Datos de ejemplo** realistas (socios, facturas, reclamos, órdenes de trabajo)  -e PGADMIN_DEFAULT_EMAIL=admin@cooperativa.com.ar \
+### String de conexión
+
+**Listo!** La base de datos está corriendo con datos de prueba.
+
+```
 
 postgresql://coop_user:cooperativa2024@localhost:5432/cooperativa_ugarte_db
+
+```
+
+---## Características
+
+---
+
+
+
+## Usuarios de Prueba
+
+## Credenciales[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)
+
+Todos usan la contraseña: **`password123`**
+
+
+
+### Clientes (11 usuarios)
+
+``````- **Schema completo** con 22 tablas interrelacionadas
+
+mariaelena.gonzalez@hotmail.com
+
+robertocarlos.martinez@gmail.comHost:     localhost:5432
+
+anapaula.fernandez@yahoo.com
+
+juanmanuel.lopez@outlook.comDatabase: cooperativa_ugarte_db- **Sistema de autenticación** con bcrypt y 3 roles (Cliente, Operario, Admin)[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15--alpine-336791?logo=postgresql)](https://www.postgresql.org/)
+
+silviaraquel.rodriguez@gmail.com
+
+carlosalberto.sanchez@hotmail.comUsuario:  coop_user
+
+juancarlos.perez@gmail.com
+
+roberto.martinez@outlook.comPassword: cooperativa2024- **19 usuarios de prueba** listos para testing
+
+ana.rodriguez@yahoo.com
+
+carlos.fernandez@gmail.com```
+
+laura.lopez@gmail.com
+
+```- **Funciones especializadas** para cooperativas eléctricas> 🎓 **Proyecto académico:** Prácticas Profesionales IV - IFTS N° 29[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)
+
+
+
+### Operarios (6 usuarios)### Conectar
+
+```
+
+pedro.electricista@cooperativa-ugarte.com.ar- **Vistas optimizadas** para consultas complejas
+
+juan.operario@cooperativa-ugarte.com.ar
+
+luis.tecnico@cooperativa-ugarte.com.ar```bash
+
+ana.supervisora@cooperativa-ugarte.com.ar
+
+carmen.atencion@cooperativa-ugarte.com.ardocker exec -it cooperativa-db psql -U coop_user -d cooperativa_ugarte_db- **Datos de ejemplo** realistas (socios, facturas, reclamos, órdenes de trabajo)## Características
+
+daniel.emergencias@cooperativa-ugarte.com.ar
+
+``````
+
+
+
+### Administradores (2 usuarios)- **Docker ready** - ejecutar en segundos
+
+```
+
+monica.administradora@cooperativa-ugarte.com.ar### String de conexión
+
+carlos.admin@cooperativa-ugarte.com.ar
+
+```
+
+
+
+---```
+
+
+
+## Que Incluyepostgresql://coop_user:cooperativa2024@localhost:5432/cooperativa_ugarte_db---
+
+
+
+- 22 tablas (socios, facturas, reclamos, medidores, etc.)```
+
+- 3 roles: CLIENTE, OPERARIO, ADMIN
+
+- 19 usuarios de prueba- Schema completo con 22 tablas interrelacionadas
+
+- Datos de ejemplo: 12 socios, 15 facturas, 10 reclamos, 10 órdenes de trabajo
+
+- Funciones especializadas: `dashboard_cliente()`, `facturas_cliente()`, etc.---
+
+
+
+---## Inicio Rápido
+
+
+
+## Comandos Útiles## Usuarios de Prueba
+
+
+
+### Backup- Sistema de autenticación con bcrypt y 3 roles (Cliente, Operario, Admin)[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-damian2k%2Fcooperativa--ugarte--db-blue)](https://hub.docker.com/r/damian2k/cooperativa-ugarte-db)## Inicio Rápido
+
+```bash
+
+docker exec cooperativa-db pg_dump -U coop_user cooperativa_ugarte_db > backup.sqlTodos usan la contraseña: **`password123`**
+
+```
+
+### Opción 1: Docker Run (Más simple)
+
+### Restaurar
+
+```bash### Clientes (11 usuarios)
+
+docker exec -i cooperativa-db psql -U coop_user cooperativa_ugarte_db < backup.sql
+
+``````- 19 usuarios de prueba listos para testing
+
+
+
+### Ver logsmariaelena.gonzalez@hotmail.com
+
+```bash
+
+docker logs cooperativa-dbrobertocarlos.martinez@gmail.com```bash
+
+```
+
+anapaula.fernandez@yahoo.com
+
+### Reiniciar
+
+```bashjuanmanuel.lopez@outlook.comdocker run -d \- Funciones especializadas para cooperativas eléctricas[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15--alpine-336791?logo=postgresql)](https://www.postgresql.org/)
+
+docker stop cooperativa-db && docker rm cooperativa-db
+
+docker run -d --name cooperativa-db -p 5432:5432 damian2k/cooperativa-ugarte-db:latestsilviaraquel.rodriguez@gmail.com
+
+```
+
+carlosalberto.sanchez@hotmail.com  --name cooperativa-db \
+
+---
+
+juancarlos.perez@gmail.com
+
+## Documentación Completa
+
+roberto.martinez@outlook.com  -p 5432:5432 \- Vistas optimizadas para consultas complejas
+
+Para detalles técnicos, consultas SQL, desarrollo y más información:
+
+ana.rodriguez@yahoo.com
+
+**[Ver DOCUMENTATION.md](DOCUMENTATION.md)**
+
+carlos.fernandez@gmail.com  damian2k/cooperativa-ugarte-db:latest
+
+---
+
+laura.lopez@gmail.com
+
+## Proyecto Académico
+
+``````- Datos de ejemplo realistas (socios, facturas, reclamos, órdenes de trabajo)### Usando Docker Hub (Recomendado)
+
+**IFTS N° 29** - Prácticas Profesionales IV  
+
+**Estudiante:** Damián Clausi  
+
+**Año:** 2025
+
+### Operarios (6 usuarios)
+
+---
+
+```
+
+## Licencia
+
+pedro.electricista@cooperativa-ugarte.com.ar### Opción 2: Docker Compose (Recomendado)- Docker ready - ejecutar en segundos
+
+MIT License
+
+juan.operario@cooperativa-ugarte.com.ar
+
+luis.tecnico@cooperativa-ugarte.com.ar
+
+ana.supervisora@cooperativa-ugarte.com.ar
+
+carmen.atencion@cooperativa-ugarte.com.ar```bash## ✨ Características
+
+daniel.emergencias@cooperativa-ugarte.com.ar
 
 ```git clone https://github.com/damianclausi/cooperativa-ugarte-db.git
 
 
 
----cd cooperativa-ugarte-db- ✅ **Docker ready** - ejecutar en segundos  -e PGADMIN_DEFAULT_PASSWORD=admin123 \
+### Administradores (2 usuarios)cd cooperativa-ugarte-db## Inicio Rápido
+
+```
+
+monica.administradora@cooperativa-ugarte.com.ardocker-compose up -d
+
+carlos.admin@cooperativa-ugarte.com.ar
+
+`````````bash
 
 
 
-## Usuarios de Pruebadocker-compose up -d
+---
 
 
 
-Todos los usuarios usan la contraseña: **`password123`**```  dpage/pgadmin4:latest
+## Que Incluye---### Opción 1: Docker Run
+
+
+
+- 22 tablas (socios, facturas, reclamos, medidores, etc.)
+
+- 3 roles: CLIENTE, OPERARIO, ADMIN
+
+- 19 usuarios de prueba## Credenciales- ✅ **Schema completo** con 22 tablas interrelacionadas# Solo base de datos
+
+- Datos de ejemplo: 12 socios, 15 facturas, 10 reclamos, 10 órdenes de trabajo
+
+- Funciones especializadas: `dashboard_cliente()`, `facturas_cliente()`, etc.
+
+
+
+---### Base de Datos PostgreSQL```bash
+
+
+
+## Comandos Útiles
+
+
+
+### Backup```docker run -d \- ✅ **Sistema de autenticación** con bcrypt y 3 roles (Cliente, Operario, Admin)docker run -d --name cooperativa-db -p 5432:5432 damian2k/cooperativa-ugarte-db:latest
+
+```bash
+
+docker exec cooperativa-db pg_dump -U coop_user cooperativa_ugarte_db > backup.sqlHost:     localhost
+
+```
+
+Puerto:   5432  --name cooperativa-db \
+
+### Restaurar
+
+```bashUsuario:  coop_user
+
+docker exec -i cooperativa-db psql -U coop_user cooperativa_ugarte_db < backup.sql
+
+```Password: cooperativa2024  -p 5432:5432 \- ✅ **19 usuarios de prueba** listos para testing
+
+
+
+### Ver logsDatabase: cooperativa_ugarte_db
+
+```bash
+
+docker logs cooperativa-db```  damian2k/cooperativa-ugarte-db:latest
+
+```
+
+
+
+### Reiniciar
+
+```bash### Conexión Rápida```- ✅ **Funciones especializadas** para cooperativas eléctricas# Con pgAdmin
+
+docker stop cooperativa-db && docker rm cooperativa-db
+
+docker run -d --name cooperativa-db -p 5432:5432 damian2k/cooperativa-ugarte-db:latest
+
+```
+
+```bash
+
+---
+
+docker exec -it cooperativa-db psql -U coop_user -d cooperativa_ugarte_db
+
+## Documentación Completa
+
+```### Opción 2: Docker Compose- ✅ **Vistas optimizadas** para consultas complejasdocker run -d --name cooperativa-pgadmin -p 8080:80 \
+
+Para detalles técnicos, consultas SQL, desarrollo y más información:
+
+
+
+**[Ver DOCUMENTATION.md](DOCUMENTATION.md)**
+
+### String de Conexión
+
+---
+
+
+
+## Docker Hub
+
+``````bash- ✅ **Datos de ejemplo** realistas (socios, facturas, reclamos, órdenes de trabajo)  -e PGADMIN_DEFAULT_EMAIL=admin@cooperativa.com.ar \
+
+**Imagen:** `damian2k/cooperativa-ugarte-db`  
+
+**Tags:** `latest`, `1.4`, `1.3`, `1.2`, `1.1`, `1.0`postgresql://coop_user:cooperativa2024@localhost:5432/cooperativa_ugarte_db
+
+
+
+---```git clone https://github.com/damianclausi/cooperativa-ugarte-db.git
+
+
+
+## Proyecto Académico
+
+
+
+**IFTS N° 29** - Prácticas Profesionales IV  ---cd cooperativa-ugarte-db- ✅ **Docker ready** - ejecutar en segundos  -e PGADMIN_DEFAULT_PASSWORD=admin123 \
+
+**Estudiante:** Damián Clausi  
+
+**Año:** 2025
+
+
+
+---## Usuarios de Pruebadocker-compose up -d
+
+
+
+## Licencia
+
+
+
+MIT LicenseTodos los usuarios usan la contraseña: **`password123`**```  dpage/pgadmin4:latest
+
 
 
 

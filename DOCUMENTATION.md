@@ -1,14 +1,8 @@
-# Guía de Desarrollo - Cooperativa Ugarte DB# Guía de Desarrollo - Cooperativa Ugarte DB
+# Documentación Completa - Cooperativa Ugarte DB
 
+Documentación técnica detallada para desarrolladores y usuarios avanzados.
 
-
-Documentación técnica para desarrolladores que necesiten modificar o extender la base de datos.Documentación técnica para desarrolladores que necesiten modificar o extender la base de datos.
-
-
-
----## 📁 Estructura del Proyecto
-
-
+---
 
 ## Estructura del Proyecto```
 
