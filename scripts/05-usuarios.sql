@@ -59,7 +59,7 @@ $$ LANGUAGE plpgsql;
 -- Paso 3: Crear usuarios con hash bcrypt
 DO $$
 DECLARE
-    v_password_hash TEXT := '$2b$10$iaIWZ5j.t4Rn9qaMzVyvgeqLZDSvkvYAla.2yIieco0/KVYMhnLFG';
+    v_password_hash TEXT := '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG';
     v_socio_id INTEGER;
     v_empleado_id INTEGER;
 BEGIN

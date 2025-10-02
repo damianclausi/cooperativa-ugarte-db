@@ -190,20 +190,22 @@ INSERT INTO pago (factura_id, fecha, monto, medio, external_ref) VALUES
 (6, '2024-10-02 16:20:00', 16750.00, 'TARJETA_CREDITO', 'TC-241002-008');
 
 -- Insertar usuarios de prueba (Cooperativa Eléctrica)
+-- Todos los usuarios tienen la misma contraseña: password123
+-- Hash bcrypt generado con Node.js: $2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG
 INSERT INTO usuario (socio_id, email, hash_pass) VALUES
-(1, 'juancarlos.perez@gmail.com', '$2b$10$example_hash_cliente_1'),
-(2, 'mariaelena.gonzalez@hotmail.com', '$2b$10$example_hash_cliente_2'),
-(3, 'roberto.martinez@outlook.com', '$2b$10$example_hash_cliente_3'),
-(4, 'ana.rodriguez@yahoo.com', '$2b$10$example_hash_cliente_4'),
-(5, 'carlos.fernandez@gmail.com', '$2b$10$example_hash_cliente_5'),
-(6, 'laura.lopez@gmail.com', '$2b$10$example_hash_cliente_6');
+(1, 'juancarlos.perez@gmail.com', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(2, 'mariaelena.gonzalez@hotmail.com', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(3, 'roberto.martinez@outlook.com', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(4, 'ana.rodriguez@yahoo.com', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(5, 'carlos.fernandez@gmail.com', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(6, 'laura.lopez@gmail.com', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG');
 
 INSERT INTO usuario (empleado_id, email, hash_pass) VALUES
-(1, 'pedro.electricista@cooperativa-ugarte.com.ar', '$2b$10$example_hash_emp_1'),
-(2, 'ana.supervisora@cooperativa-ugarte.com.ar', '$2b$10$example_hash_emp_2'),
-(4, 'carmen.atencion@cooperativa-ugarte.com.ar', '$2b$10$example_hash_emp_4'),
-(7, 'monica.administradora@cooperativa-ugarte.com.ar', '$2b$10$example_hash_emp_7'),
-(10, 'daniel.emergencias@cooperativa-ugarte.com.ar', '$2b$10$example_hash_emp_10');
+(1, 'pedro.electricista@cooperativa-ugarte.com.ar', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(2, 'ana.supervisora@cooperativa-ugarte.com.ar', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(4, 'carmen.atencion@cooperativa-ugarte.com.ar', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(7, 'monica.administradora@cooperativa-ugarte.com.ar', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG'),
+(10, 'daniel.emergencias@cooperativa-ugarte.com.ar', '$2b$10$WRl0heuhm34IuEWqZWkyF.B6kpWQZ12tiOMZlFQtvbD2DL38lnswG');
 
 -- Asignar roles a usuarios (Cooperativa Eléctrica)
 INSERT INTO usuario_rol (usuario_id, rol_id) VALUES
