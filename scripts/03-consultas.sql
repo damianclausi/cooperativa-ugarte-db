@@ -61,7 +61,8 @@ BEGIN
                 ) as reclamo_data, r.fecha_alta
                 FROM reclamo r
                 JOIN cuenta c ON r.cuenta_id = c.cuenta_id
-                JOIN tipo_reclamo tr ON r.tipo_id = tr.tipo_id
+                JOIN detalle_tipo_reclamo d ON r.detalle_id = d.detalle_id
+    JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
                 JOIN prioridad p ON r.prioridad_id = p.prioridad_id
                 WHERE c.socio_id = p_socio_id
                 AND r.estado NOT IN ('RESUELTO', 'CERRADO')
@@ -193,7 +194,7 @@ BEGIN
     SELECT 
         r.reclamo_id,
         r.fecha_alta,
-        tr.nombre as tipo_reclamo,
+        d.nombre as detalle_reclamo, t.nombre as tipo_reclamo,
         r.descripcion,
         r.estado,
         p.nombre as prioridad,
@@ -201,7 +202,8 @@ BEGIN
         c.numero_cuenta
     FROM reclamo r
     JOIN cuenta c ON r.cuenta_id = c.cuenta_id
-    JOIN tipo_reclamo tr ON r.tipo_id = tr.tipo_id
+    JOIN detalle_tipo_reclamo d ON r.detalle_id = d.detalle_id
+    JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
     JOIN prioridad p ON r.prioridad_id = p.prioridad_id
     WHERE c.socio_id = p_socio_id
     ORDER BY r.fecha_alta DESC;
@@ -231,7 +233,7 @@ BEGIN
     SELECT 
         ot.ot_id,
         r.reclamo_id,
-        tr.nombre as tipo_reclamo,
+        d.nombre as detalle_reclamo, t.nombre as tipo_reclamo,
         p.nombre as prioridad,
         p.orden as prioridad_orden,
         ot.direccion_intervencion as direccion,
@@ -241,7 +243,8 @@ BEGIN
         'Gobernador Ugarte' as zona
     FROM orden_trabajo ot
     JOIN reclamo r ON ot.reclamo_id = r.reclamo_id
-    JOIN tipo_reclamo tr ON r.tipo_id = tr.tipo_id
+    JOIN detalle_tipo_reclamo d ON r.detalle_id = d.detalle_id
+    JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
     JOIN prioridad p ON r.prioridad_id = p.prioridad_id
     WHERE ot.empleado_id = p_empleado_id
     AND ot.estado IN ('ASIGNADA', 'EN_PROCESO')
@@ -293,7 +296,8 @@ BEGIN
     JOIN reclamo r ON ot.reclamo_id = r.reclamo_id
     JOIN cuenta c ON r.cuenta_id = c.cuenta_id
     JOIN socio s ON c.socio_id = s.socio_id
-    JOIN tipo_reclamo tr ON r.tipo_id = tr.tipo_id
+    JOIN detalle_tipo_reclamo d ON r.detalle_id = d.detalle_id
+    JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
     JOIN prioridad p ON r.prioridad_id = p.prioridad_id
     WHERE ot.ot_id = p_ot_id;
     
@@ -441,7 +445,8 @@ BEGIN
                     'porcentaje', ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 1)
                 ))
                 FROM reclamo r
-                JOIN tipo_reclamo tr ON r.tipo_id = tr.tipo_id
+                JOIN detalle_tipo_reclamo d ON r.detalle_id = d.detalle_id
+    JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
                 WHERE r.fecha_alta::date BETWEEN p_fecha_desde AND p_fecha_hasta
                 GROUP BY tr.nombre
                 ORDER BY COUNT(*) DESC

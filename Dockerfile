@@ -4,7 +4,7 @@ FROM postgres:15-alpine
 # Información del mantenedor
 LABEL maintainer="Cooperativa Eléctrica Gobernador Ugarte"
 LABEL description="Base de datos PostgreSQL para sistema de gestión cooperativa eléctrica"
-LABEL version="1.5"
+LABEL version="1.6"
 
 # Variables de entorno por defecto
 ENV POSTGRES_DB=cooperativa_ugarte_db

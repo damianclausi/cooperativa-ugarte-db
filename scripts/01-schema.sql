@@ -79,11 +79,20 @@ CREATE TABLE lectura (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabla de Tipos de Reclamo
+-- Tabla de Tipos de Reclamo (TECNICO / ADMINISTRATIVO)
 CREATE TABLE tipo_reclamo (
     tipo_id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
     descripcion TEXT,
+    activo BOOLEAN DEFAULT true,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de Detalle de Tipos de Reclamo (categorías específicas)
+CREATE TABLE detalle_tipo_reclamo (
+    detalle_id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    tipo_id INTEGER NOT NULL REFERENCES tipo_reclamo(tipo_id),
     activo BOOLEAN DEFAULT true,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -102,7 +111,7 @@ CREATE TABLE prioridad (
 CREATE TABLE reclamo (
     reclamo_id SERIAL PRIMARY KEY,
     cuenta_id INTEGER NOT NULL REFERENCES cuenta(cuenta_id),
-    tipo_id INTEGER NOT NULL REFERENCES tipo_reclamo(tipo_id),
+    detalle_id INTEGER NOT NULL REFERENCES detalle_tipo_reclamo(detalle_id),
     prioridad_id INTEGER NOT NULL REFERENCES prioridad(prioridad_id),
     fecha_alta TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     canal VARCHAR(50) DEFAULT 'WEB', -- WEB, TELEFONO, EMAIL, PRESENCIAL
@@ -376,16 +385,21 @@ INSERT INTO servicio (nombre, categoria, descripcion) VALUES
 ('Energía Eléctrica Industrial', 'Eléctrico', 'Suministro eléctrico para uso industrial'),
 ('Energía Eléctrica General', 'Eléctrico', 'Suministro eléctrico general');
 
--- Insertar tipos de reclamo (Cooperativa Eléctrica)
+-- Insertar tipos principales de reclamo
 INSERT INTO tipo_reclamo (nombre, descripcion) VALUES
-('Falta de Suministro', 'Corte total de energía eléctrica'),
-('Fluctuaciones de Tensión', 'Variaciones en el voltaje del suministro'),
-('Daños en Red', 'Cables caídos, postes dañados, etc.'),
-('Medidor Defectuoso', 'Problemas con el medidor eléctrico'),
-('Facturación', 'Reclamos relacionados con facturación'),
-('Conexión Nueva', 'Solicitud de nueva conexión eléctrica'),
-('Reconexión', 'Solicitud de reconexión del servicio'),
-('Calidad del Servicio', 'Problemas con la calidad del suministro eléctrico');
+('TECNICO', 'Reclamos que requieren intervención de operario en terreno'),
+('ADMINISTRATIVO', 'Reclamos que se resuelven desde oficina');
+
+-- Insertar detalles de tipos de reclamo (Cooperativa Eléctrica)
+INSERT INTO detalle_tipo_reclamo (nombre, tipo_id) VALUES
+('Falta de Suministro', 1),           -- TECNICO
+('Fluctuaciones de Tensión', 1),      -- TECNICO
+('Daños en Red', 1),                  -- TECNICO
+('Medidor Defectuoso', 1),            -- TECNICO
+('Facturación', 2),                   -- ADMINISTRATIVO
+('Conexión Nueva', 2),                -- ADMINISTRATIVO
+('Reconexión', 1),                    -- TECNICO
+('Calidad del Servicio', 1);          -- TECNICO
 
 -- Insertar prioridades
 INSERT INTO prioridad (nombre, orden, color) VALUES
@@ -439,7 +453,8 @@ SELECT
     r.fecha_alta,
     c.numero_cuenta,
     s.nombre || ' ' || s.apellido AS solicitante,
-    tr.nombre AS tipo_reclamo,
+    d.nombre AS detalle_reclamo,
+    t.nombre AS tipo_reclamo,
     p.nombre AS prioridad,
     r.estado,
     r.descripcion,
@@ -447,7 +462,8 @@ SELECT
 FROM reclamo r
 JOIN cuenta c ON r.cuenta_id = c.cuenta_id
 JOIN socio s ON c.socio_id = s.socio_id
-JOIN tipo_reclamo tr ON r.tipo_id = tr.tipo_id
+JOIN detalle_tipo_reclamo d ON r.detalle_id = d.detalle_id
+JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
 JOIN prioridad p ON r.prioridad_id = p.prioridad_id;
 
 -- Vista de órdenes de trabajo con información completa
@@ -458,7 +474,8 @@ SELECT
     ot.estado,
     e.nombre || ' ' || e.apellido AS tecnico_asignado,
     r.reclamo_id,
-    tr.nombre AS tipo_reclamo,
+    d.nombre AS detalle_reclamo,
+    t.nombre AS tipo_reclamo,
     c.numero_cuenta,
     s.nombre || ' ' || s.apellido AS solicitante,
     ot.direccion_intervencion
@@ -466,7 +483,8 @@ FROM orden_trabajo ot
 JOIN reclamo r ON ot.reclamo_id = r.reclamo_id
 JOIN cuenta c ON r.cuenta_id = c.cuenta_id
 JOIN socio s ON c.socio_id = s.socio_id
-JOIN tipo_reclamo tr ON r.tipo_id = tr.tipo_id
+JOIN detalle_tipo_reclamo d ON r.detalle_id = d.detalle_id
+JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
 LEFT JOIN empleado e ON ot.empleado_id = e.empleado_id;
 
 -- Vista de stock de materiales

@@ -121,7 +121,7 @@ INSERT INTO empleado_cuadrilla (empleado_id, cuadrilla_id) VALUES
 (10, 4); -- Daniel en Emergencias
 
 -- Insertar reclamos de prueba (Cooperativa Eléctrica)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal) VALUES
 (1, 1, 1, 'Corte total de energía eléctrica desde las 14:00 hs', 'TELEFONO'),
 (3, 3, 1, 'Cable caído en la vereda frente al domicilio', 'WEB'),
 (5, 2, 2, 'Fluctuaciones de tensión que dañaron electrodomésticos', 'PRESENCIAL'),

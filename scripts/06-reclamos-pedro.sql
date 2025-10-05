@@ -9,17 +9,17 @@
 -- ==================================
 
 -- Prioridad ALTA (2 reclamos)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
 (1, 1, 1, 'Corte de luz intermitente cada 2 horas en zona norte', 'TELEFONO', 'PENDIENTE', NOW() - INTERVAL '2 days'),
 (2, 3, 1, 'Transformador con sobrecalentamiento - zona comercial - URGENTE', 'WEB', 'PENDIENTE', NOW() - INTERVAL '1 day');
 
 -- Prioridad MEDIA (2 reclamos)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
 (3, 2, 2, 'Baja tensión en horario de 18:00 a 22:00 - barrio sur', 'EMAIL', 'PENDIENTE', NOW() - INTERVAL '1 day'),
 (4, 3, 2, 'Cableado antiguo requiere inspección preventiva', 'PRESENCIAL', 'PENDIENTE', NOW());
 
 -- Prioridad BAJA (2 reclamos)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
 (5, 4, 3, 'Medidor marca lecturas inconsistentes desde hace 1 semana', 'WEB', 'PENDIENTE', NOW() - INTERVAL '3 days'),
 (6, 4, 3, 'Solicitud de cambio de ubicación de medidor por obra', 'PRESENCIAL', 'PENDIENTE', NOW());
 
@@ -28,19 +28,19 @@ INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estad
 -- ==================================
 
 -- Prioridad ALTA (3 reclamos - trabajos urgentes en progreso)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
 (7, 3, 1, 'Cables sueltos en poste 245 - Calle San Martín y Belgrano', 'TELEFONO', 'EN_PROCESO', NOW() - INTERVAL '3 days'),
 (8, 3, 1, 'Poste inclinado requiere apuntalamiento urgente - Ruta 6', 'TELEFONO', 'EN_PROCESO', NOW() - INTERVAL '3 days'),
 (9, 1, 1, 'Cortocircuito en red trifásica zona industrial', 'WEB', 'EN_PROCESO', NOW() - INTERVAL '2 days');
 
 -- Prioridad MEDIA (3 reclamos - trabajos regulares)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
 (10, 3, 2, 'Fusible de protección quemado - requiere reemplazo', 'EMAIL', 'EN_PROCESO', NOW() - INTERVAL '2 days'),
 (11, 2, 2, 'Instalación de protección contra sobretensión', 'PRESENCIAL', 'EN_PROCESO', NOW() - INTERVAL '2 days'),
 (12, 3, 2, 'Cambio de conductor por sección insuficiente', 'WEB', 'EN_PROCESO', NOW() - INTERVAL '1 day');
 
 -- Prioridad BAJA (2 reclamos - mantenimiento)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
 (1, 8, 3, 'Verificación de instalación eléctrica domiciliaria', 'PRESENCIAL', 'EN_PROCESO', NOW() - INTERVAL '1 day'),
 (2, 8, 3, 'Revisión de puesta a tierra en vivienda unifamiliar', 'WEB', 'EN_PROCESO', NOW() - INTERVAL '1 day');
 
@@ -49,17 +49,17 @@ INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estad
 -- ==================================
 
 -- Prioridad ALTA (2 reclamos - resueltos recientemente)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta, fecha_cierre) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta, fecha_cierre) VALUES
 (3, 3, 1, 'Reparación de conexión domiciliaria deteriorada', 'TELEFONO', 'RESUELTO', NOW() - INTERVAL '4 days', NOW() - INTERVAL '1 day'),
 (4, 1, 1, 'Emergencia: falta total de suministro en manzana completa', 'TELEFONO', 'RESUELTO', NOW() - INTERVAL '5 days', NOW() - INTERVAL '2 days');
 
 -- Prioridad MEDIA (2 reclamos)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta, fecha_cierre) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta, fecha_cierre) VALUES
 (5, 4, 2, 'Instalación de medidor digital nuevo', 'PRESENCIAL', 'RESUELTO', NOW() - INTERVAL '6 days', NOW() - INTERVAL '2 days'),
 (6, 3, 2, 'Reemplazo de cable aéreo dañado por tormenta', 'WEB', 'RESUELTO', NOW() - INTERVAL '7 days', NOW() - INTERVAL '3 days');
 
 -- Prioridad BAJA (2 reclamos)
-INSERT INTO reclamo (cuenta_id, tipo_id, prioridad_id, descripcion, canal, estado, fecha_alta, fecha_cierre) VALUES
+INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta, fecha_cierre) VALUES
 (7, 4, 3, 'Reubicación de medidor por obra en fachada', 'PRESENCIAL', 'RESUELTO', NOW() - INTERVAL '8 days', NOW() - INTERVAL '4 days'),
 (8, 8, 3, 'Verificación y certificación de instalación nueva', 'WEB', 'RESUELTO', NOW() - INTERVAL '10 days', NOW() - INTERVAL '5 days');
 
