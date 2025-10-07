@@ -136,7 +136,7 @@ BEGIN
     
     -- Actualizar estado del reclamo si se asignó empleado
     IF p_empleado_id IS NOT NULL THEN
-        UPDATE reclamo SET estado = 'EN_PROCESO' WHERE reclamo_id = v_reclamo_id;
+        UPDATE reclamo SET estado = 'EN CURSO' WHERE reclamo_id = v_reclamo_id;
         UPDATE orden_trabajo SET estado = 'ASIGNADA' WHERE ot_id = v_ot_id;
     END IF;
     
@@ -144,7 +144,7 @@ BEGIN
     SELECT json_build_object(
         'reclamo_id', v_reclamo_id,
         'ot_id', v_ot_id,
-        'estado_reclamo', CASE WHEN p_empleado_id IS NOT NULL THEN 'EN_PROCESO' ELSE 'PENDIENTE' END,
+        'estado_reclamo', CASE WHEN p_empleado_id IS NOT NULL THEN 'EN CURSO' ELSE 'PENDIENTE' END,
         'estado_ot', CASE WHEN p_empleado_id IS NOT NULL THEN 'ASIGNADA' ELSE 'PENDIENTE' END
     ) INTO v_resultado;
     
@@ -396,13 +396,13 @@ BEGIN
             'en_proceso', (
                 SELECT COUNT(*) 
                 FROM reclamo 
-                WHERE estado = 'EN_PROCESO' 
+                WHERE estado = 'EN CURSO' 
                 AND fecha_alta::date BETWEEN p_fecha_desde AND p_fecha_hasta
             ),
             'resueltos', (
                 SELECT COUNT(*) 
                 FROM reclamo 
-                WHERE estado IN ('RESUELTO', 'CERRADO') 
+                WHERE estado = 'RESUELTO'
                 AND fecha_alta::date BETWEEN p_fecha_desde AND p_fecha_hasta
             )
         ),
@@ -433,7 +433,7 @@ BEGIN
         'tiempo_promedio_resolucion', (
             SELECT ROUND(AVG(EXTRACT(DAYS FROM (fecha_cierre - fecha_alta))), 2)
             FROM reclamo 
-            WHERE estado IN ('RESUELTO', 'CERRADO') 
+            WHERE estado = 'RESUELTO'
             AND fecha_cierre IS NOT NULL
             AND fecha_alta::date BETWEEN p_fecha_desde AND p_fecha_hasta
         )

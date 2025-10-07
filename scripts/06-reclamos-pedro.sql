@@ -24,25 +24,25 @@ INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, es
 (6, 4, 3, 'Solicitud de cambio de ubicación de medidor por obra', 'PRESENCIAL', 'PENDIENTE', NOW());
 
 -- ==================================
--- RECLAMOS EN_PROCESO (8 reclamos)
+-- RECLAMOS EN CURSO (8 reclamos)
 -- ==================================
 
 -- Prioridad ALTA (3 reclamos - trabajos urgentes en progreso)
 INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
-(7, 3, 1, 'Cables sueltos en poste 245 - Calle San Martín y Belgrano', 'TELEFONO', 'EN_PROCESO', NOW() - INTERVAL '3 days'),
-(8, 3, 1, 'Poste inclinado requiere apuntalamiento urgente - Ruta 6', 'TELEFONO', 'EN_PROCESO', NOW() - INTERVAL '3 days'),
-(9, 1, 1, 'Cortocircuito en red trifásica zona industrial', 'WEB', 'EN_PROCESO', NOW() - INTERVAL '2 days');
+(7, 3, 1, 'Cables sueltos en poste 245 - Calle San Martín y Belgrano', 'TELEFONO', 'EN CURSO', NOW() - INTERVAL '3 days'),
+(8, 3, 1, 'Poste inclinado requiere apuntalamiento urgente - Ruta 6', 'TELEFONO', 'EN CURSO', NOW() - INTERVAL '3 days'),
+(9, 1, 1, 'Cortocircuito en red trifásica zona industrial', 'WEB', 'EN CURSO', NOW() - INTERVAL '2 days');
 
 -- Prioridad MEDIA (3 reclamos - trabajos regulares)
 INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
-(10, 3, 2, 'Fusible de protección quemado - requiere reemplazo', 'EMAIL', 'EN_PROCESO', NOW() - INTERVAL '2 days'),
-(11, 2, 2, 'Instalación de protección contra sobretensión', 'PRESENCIAL', 'EN_PROCESO', NOW() - INTERVAL '2 days'),
-(12, 3, 2, 'Cambio de conductor por sección insuficiente', 'WEB', 'EN_PROCESO', NOW() - INTERVAL '1 day');
+(10, 3, 2, 'Fusible de protección quemado - requiere reemplazo', 'EMAIL', 'EN CURSO', NOW() - INTERVAL '2 days'),
+(11, 2, 2, 'Instalación de protección contra sobretensión', 'PRESENCIAL', 'EN CURSO', NOW() - INTERVAL '2 days'),
+(12, 3, 2, 'Cambio de conductor por sección insuficiente', 'WEB', 'EN CURSO', NOW() - INTERVAL '1 day');
 
 -- Prioridad BAJA (2 reclamos - mantenimiento)
 INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, estado, fecha_alta) VALUES
-(1, 8, 3, 'Verificación de instalación eléctrica domiciliaria', 'PRESENCIAL', 'EN_PROCESO', NOW() - INTERVAL '1 day'),
-(2, 8, 3, 'Revisión de puesta a tierra en vivienda unifamiliar', 'WEB', 'EN_PROCESO', NOW() - INTERVAL '1 day');
+(1, 8, 3, 'Verificación de instalación eléctrica domiciliaria', 'PRESENCIAL', 'EN CURSO', NOW() - INTERVAL '1 day'),
+(2, 8, 3, 'Revisión de puesta a tierra en vivienda unifamiliar', 'WEB', 'EN CURSO', NOW() - INTERVAL '1 day');
 
 -- ==================================
 -- RECLAMOS RESUELTOS (6 reclamos)
@@ -92,12 +92,12 @@ WHERE r.estado = 'PENDIENTE'
     'Solicitud de cambio de ubicación de medidor por obra'
   );
 
--- EN_PROCESO: Crear órdenes en progreso
+-- EN CURSO: Crear órdenes en progreso
 INSERT INTO orden_trabajo (reclamo_id, empleado_id, fecha_programada, estado, direccion_intervencion)
-SELECT r.reclamo_id, 1, NOW() - INTERVAL '1 day', 'EN_PROCESO', c.direccion
+SELECT r.reclamo_id, 1, NOW() - INTERVAL '1 day', 'EN CURSO', c.direccion
 FROM reclamo r
 JOIN cuenta c ON r.cuenta_id = c.cuenta_id
-WHERE r.estado = 'EN_PROCESO'
+WHERE r.estado = 'EN CURSO'
   AND r.descripcion IN (
     'Cables sueltos en poste 245 - Calle San Martín y Belgrano',
     'Poste inclinado requiere apuntalamiento urgente - Ruta 6',
@@ -142,7 +142,7 @@ BEGIN
     
     SELECT COUNT(*) INTO en_proceso FROM reclamo r
     JOIN orden_trabajo ot ON r.reclamo_id = ot.reclamo_id
-    WHERE ot.empleado_id = 1 AND r.estado = 'EN_PROCESO';
+    WHERE ot.empleado_id = 1 AND r.estado = 'EN CURSO';
     
     SELECT COUNT(*) INTO resueltos FROM reclamo r
     JOIN orden_trabajo ot ON r.reclamo_id = ot.reclamo_id
@@ -152,7 +152,7 @@ BEGIN
     
     RAISE NOTICE '=== RECLAMOS TÉCNICOS DE PEDRO GARCÍA ===';
     RAISE NOTICE 'Pendientes: %', pendientes;
-    RAISE NOTICE 'En Proceso: %', en_proceso;
+    RAISE NOTICE 'En Curso: %', en_proceso;
     RAISE NOTICE 'Resueltos: %', resueltos;
     RAISE NOTICE 'Total Órdenes de Trabajo: %', total_ots;
 END $$;

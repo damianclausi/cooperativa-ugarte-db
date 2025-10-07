@@ -49,7 +49,7 @@ scripts/
 ├── 03-consultas.sql      # Vistas optimizadas (opcional)
 ├── 04-datos-prueba.sql   # Inserta datos de ejemplo (12 socios, 15 facturas, etc.)
 ├── 05-usuarios.sql       # Crea 19 usuarios con autenticacion bcrypt
-└── 06-reclamos-pedro.sql # 20 reclamos tecnicos para operario Pedro (PENDIENTE/EN_PROCESO/RESUELTO)
+└── 06-reclamos-pedro.sql # 20 reclamos tecnicos para operario Pedro (PENDIENTE/EN CURSO/RESUELTO)
 ```
 
 **Modificar scripts (si necesitas):**
@@ -167,7 +167,7 @@ docker rmi tu-usuario/cooperativa-ugarte-db:1.0
 - **3 roles:** CLIENTE, OPERARIO, ADMIN
 - **19 usuarios de prueba:** password `password123`
 - **Datos de ejemplo:** 12 socios, 15 facturas, 30 reclamos (10 iniciales + 20 de Pedro), 33 ordenes de trabajo
-- **Operario Pedro:** 23 ordenes de trabajo asignadas (6 PENDIENTES, 8 EN_PROCESO, 6 RESUELTOS)
+- **Operario Pedro:** 23 ordenes de trabajo asignadas (6 PENDIENTES, 8 EN CURSO, 6 RESUELTOS)
 
 ---
 

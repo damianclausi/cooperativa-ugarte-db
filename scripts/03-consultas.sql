@@ -65,7 +65,7 @@ BEGIN
     JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
                 JOIN prioridad p ON r.prioridad_id = p.prioridad_id
                 WHERE c.socio_id = p_socio_id
-                AND r.estado NOT IN ('RESUELTO', 'CERRADO')
+                AND r.estado != 'RESUELTO'
                 ORDER BY r.fecha_alta DESC
             ) reclamos_ordenados
         )
@@ -247,7 +247,7 @@ BEGIN
     JOIN tipo_reclamo t ON d.tipo_id = t.tipo_id
     JOIN prioridad p ON r.prioridad_id = p.prioridad_id
     WHERE ot.empleado_id = p_empleado_id
-    AND ot.estado IN ('ASIGNADA', 'EN_PROCESO')
+    AND ot.estado IN ('ASIGNADA', 'EN CURSO')
     ORDER BY p.orden, ot.fecha_programada;
 END;
 $$ LANGUAGE plpgsql;
@@ -466,7 +466,7 @@ BEGIN
             'tiempo_promedio_resolucion', (
                 SELECT ROUND(AVG(EXTRACT(HOURS FROM (fecha_cierre - fecha_alta))), 1)
                 FROM reclamo 
-                WHERE estado IN ('RESUELTO', 'CERRADO') 
+                WHERE estado = 'RESUELTO'
                 AND fecha_cierre IS NOT NULL
                 AND fecha_alta::date BETWEEN p_fecha_desde AND p_fecha_hasta
             )
@@ -481,7 +481,7 @@ BEGIN
             'ordenes_pendientes', (
                 SELECT COUNT(*)
                 FROM orden_trabajo
-                WHERE estado IN ('PENDIENTE', 'ASIGNADA', 'EN_PROCESO')
+                WHERE estado IN ('PENDIENTE', 'ASIGNADA', 'EN CURSO')
             ),
             'cuadrillas_activas', (
                 SELECT COUNT(*)

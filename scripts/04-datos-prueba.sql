@@ -135,7 +135,7 @@ INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal) VA
 
 -- Insertar órdenes de trabajo (Cooperativa Eléctrica)
 INSERT INTO orden_trabajo (reclamo_id, empleado_id, fecha_programada, estado, direccion_intervencion) VALUES
-(1, 1, '2024-10-02 09:00:00', 'EN_PROCESO', 'Av. San Martín 1234'),
+(1, 1, '2024-10-02 09:00:00', 'EN CURSO', 'Av. San Martín 1234'),
 (2, 3, '2024-10-02 14:00:00', 'COMPLETADA', 'Calle Belgrano 567'),
 (3, 1, '2024-10-03 10:00:00', 'ASIGNADA', 'Sarmiento 456'),
 (4, 9, '2024-10-03 15:00:00', 'PENDIENTE', 'Mitre 123'),
@@ -143,7 +143,7 @@ INSERT INTO orden_trabajo (reclamo_id, empleado_id, fecha_programada, estado, di
 (6, 10, '2024-10-01 20:00:00', 'COMPLETADA', 'Calle Belgrano 567'),
 (7, 2, '2024-10-05 10:00:00', 'PENDIENTE', 'Moreno 789'),
 (8, 6, '2024-10-04 14:00:00', 'ASIGNADA', 'Córdoba 654'),
-(9, 8, '2024-10-03 16:00:00', 'EN_PROCESO', 'Córdoba 654'),
+(9, 8, '2024-10-03 16:00:00', 'EN CURSO', 'Córdoba 654'),
 (10, 10, '2024-10-02 08:00:00', 'COMPLETADA', 'Roca 456');
 
 -- Insertar itinerarios
@@ -262,9 +262,9 @@ INSERT INTO uso_material (ot_id, material_id, cantidad) VALUES
 (10, 8, 1); -- 1 fusible
 
 -- Actualizar algunos estados (Cooperativa Eléctrica)
-UPDATE reclamo SET estado = 'EN_PROCESO' WHERE reclamo_id IN (1, 3, 9);
+UPDATE reclamo SET estado = 'EN CURSO' WHERE reclamo_id IN (1, 3, 9);
 UPDATE reclamo SET estado = 'RESUELTO' WHERE reclamo_id IN (2, 6, 10);
-UPDATE orden_trabajo SET estado = 'EN_PROCESO' WHERE ot_id IN (1, 9);
+UPDATE orden_trabajo SET estado = 'EN CURSO' WHERE ot_id IN (1, 9);
 UPDATE orden_trabajo SET estado = 'COMPLETADA' WHERE ot_id IN (2, 6, 10);
 UPDATE factura SET estado = 'PAGADA' WHERE factura_id IN (1, 4, 6, 11, 12, 13, 15);
 
