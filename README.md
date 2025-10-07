@@ -50,11 +50,19 @@ scripts/
 ├── 04-datos-prueba.sql   # Inserta datos de ejemplo (12 socios, 15 facturas, etc.)
 ├── 05-usuarios.sql       # Crea 19 usuarios con autenticacion bcrypt
 └── 06-reclamos-pedro.sql # 20 reclamos tecnicos para operario Pedro (PENDIENTE/EN CURSO/RESUELTO)
+
+Scripts de migración (opcionales - solo para actualizar bases de datos existentes):
+├── 07-migracion-tipos-reclamo.sql    # Migra estructura jerárquica de tipos de reclamo
+├── 08-migracion-estados.sql          # Cambia EN_PROCESO → EN CURSO
+└── 09-eliminar-estado-cerrado.sql    # Elimina registros con estado CERRADO
 ```
 
 **Modificar scripts (si necesitas):**
 - Edita cualquier archivo `.sql` en la carpeta `scripts/`
 - Los cambios se aplicaran al construir la imagen Docker
+
+**Nota sobre scripts de migración:**
+Los scripts 07-09 son idempotentes y solo se ejecutan si detectan que la migración no se ha aplicado. Para nuevas instalaciones, no son necesarios y pueden ser omitidos del Dockerfile.
 
 #### 3. Probar scripts localmente (opcional)
 
