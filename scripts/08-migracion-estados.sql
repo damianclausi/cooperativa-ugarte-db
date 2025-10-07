@@ -6,6 +6,28 @@
 --              en las tablas reclamo y orden_trabajo
 -- ===========================================
 
+-- Verificar si la migración ya se aplicó
+DO $$
+DECLARE
+    migracion_aplicada BOOLEAN := FALSE;
+BEGIN
+    -- Verificar si ya no existen estados EN_PROCESO (indica migración aplicada)
+    IF NOT EXISTS (
+        SELECT 1 FROM reclamo WHERE estado = 'EN_PROCESO'
+        UNION
+        SELECT 1 FROM orden_trabajo WHERE estado = 'EN_PROCESO'
+    ) THEN
+        migracion_aplicada := TRUE;
+    END IF;
+
+    IF migracion_aplicada THEN
+        RAISE NOTICE 'La migración de estados ya se aplicó. Saltando...';
+        RETURN;
+    END IF;
+
+    RAISE NOTICE 'Aplicando migración de estados EN_PROCESO → EN CURSO...';
+END $$;
+
 -- Actualizar estados en tabla reclamo
 UPDATE reclamo SET estado = 'EN CURSO' WHERE estado = 'EN_PROCESO';
 
