@@ -70,7 +70,8 @@ INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal, es
 -- Obtener los últimos 20 reclamos insertados y crear órdenes de trabajo
 -- Se excluyen los RESUELTOS ya que las órdenes ya estarían completadas
 
--- PENDIENTES: Crear órdenes asignadas
+-- PENDIENTES: Crear órdenes - algunas asignadas y otras liberadas para itinerarios
+-- OTs asignadas directamente a Pedro (empleado_id = 1)
 INSERT INTO orden_trabajo (reclamo_id, empleado_id, fecha_programada, estado, direccion_intervencion)
 SELECT r.reclamo_id, 1, 
     CASE 
@@ -84,11 +85,28 @@ FROM reclamo r
 JOIN cuenta c ON r.cuenta_id = c.cuenta_id
 WHERE r.estado = 'PENDIENTE' 
   AND r.descripcion IN (
-    'Corte de luz intermitente cada 2 horas en zona norte',
     'Transformador con sobrecalentamiento - zona comercial - URGENTE',
     'Baja tensión en horario de 18:00 a 22:00 - barrio sur',
+    'Medidor marca lecturas inconsistentes desde hace 1 semana'
+  );
+
+-- OTs PENDIENTES liberadas (sin empleado) para sistema de itinerarios
+INSERT INTO orden_trabajo (reclamo_id, empleado_id, fecha_programada, estado, direccion_intervencion, observaciones)
+SELECT r.reclamo_id, NULL, 
+    CASE 
+        WHEN r.prioridad_id = 1 THEN NOW() + INTERVAL '6 hours'  -- Alta: hoy mismo
+        WHEN r.prioridad_id = 2 THEN NOW() + INTERVAL '1 day'    -- Media: mañana
+        ELSE NOW() + INTERVAL '3 days'                            -- Baja: 3 días
+    END,
+    'PENDIENTE',
+    c.direccion,
+    'Disponible para asignación a itinerario de cuadrilla'
+FROM reclamo r
+JOIN cuenta c ON r.cuenta_id = c.cuenta_id
+WHERE r.estado = 'PENDIENTE' 
+  AND r.descripcion IN (
+    'Corte de luz intermitente cada 2 horas en zona norte',
     'Cableado antiguo requiere inspección preventiva',
-    'Medidor marca lecturas inconsistentes desde hace 1 semana',
     'Solicitud de cambio de ubicación de medidor por obra'
   );
 
