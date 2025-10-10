@@ -1,5 +1,26 @@
 # Changelog - Cooperativa Eléctrica "Gobernador Ugarte" DB
 
+## [1.10] - 2025-10-10
+
+### Agregado
+- **Asignaciones de cuadrillas balanceadas**: Los 10 empleados ahora vienen asignados a cuadrillas por defecto
+- Cuadrilla Centro: 3 operarios (Pedro, Ana, Fernando)
+- Cuadrilla Norte: 2 operarios (Luis, Raúl)
+- Cuadrilla Sur: 2 operarios (Jorge, Mónica)
+- Cuadrilla Emergencias: 2 operarios (Daniel, Carmen)
+- Cuadrilla Mantenimiento: 1 operario (Sandra)
+
+### Modificado
+- **04-datos-prueba.sql**: Actualizada la tabla empleado_cuadrilla con todos los empleados asignados
+- Distribución balanceada de 2-3 operarios por cuadrilla para pruebas efectivas del sistema
+
+### Beneficio
+- Base de datos lista con cuadrillas operativas desde el primer despliegue
+- Permite probar inmediatamente asignación de OTs liberadas a cuadrillas
+- Sistema completo de itinerarios funcional sin configuración adicional
+
+---
+
 ## [1.9] - 2025-10-10
 
 ### ✨ Agregado

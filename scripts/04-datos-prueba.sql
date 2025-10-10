@@ -109,16 +109,23 @@ INSERT INTO cuadrilla (nombre, zona) VALUES
 ('Cuadrilla Emergencias', 'Toda la Ciudad'),
 ('Cuadrilla Mantenimiento', 'Red General');
 
--- Asignar empleados a cuadrillas
+-- Asignar empleados a cuadrillas (distribución balanceada: 2-3 operarios por cuadrilla)
 INSERT INTO empleado_cuadrilla (empleado_id, cuadrilla_id) VALUES
+-- Cuadrilla Centro (3 operarios)
 (1, 1), -- Pedro Electricista en Centro
 (2, 1), -- Ana Supervisora en Centro
-(3, 2), -- Luis Técnico en Norte
-(5, 3), -- Jorge Mantenimiento en Sur
-(6, 2), -- Raúl Montajista en Norte
 (8, 1), -- Fernando Operador en Centro
-(9, 5), -- Sandra Medidores en Mantenimiento
-(10, 4); -- Daniel en Emergencias
+-- Cuadrilla Norte (2 operarios)
+(3, 2), -- Luis Técnico en Norte
+(6, 2), -- Raúl Montajista en Norte
+-- Cuadrilla Sur (2 operarios)
+(5, 3), -- Jorge Mantenimiento en Sur
+(7, 3), -- Mónica Administrativa en Sur
+-- Cuadrilla Emergencias (2 operarios)
+(10, 4), -- Daniel Guardia en Emergencias
+(4, 4), -- Carmen Atención al Socio en Emergencias
+-- Cuadrilla Mantenimiento (1 operario)
+(9, 5); -- Sandra Medidores en Mantenimiento
 
 -- Insertar reclamos de prueba (Cooperativa Eléctrica)
 INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal) VALUES
