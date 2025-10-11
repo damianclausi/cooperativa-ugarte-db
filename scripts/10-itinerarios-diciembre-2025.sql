@@ -109,8 +109,8 @@ BEGIN
     LIMIT 1;
     
     IF v_itinerario_id IS NULL THEN
-        INSERT INTO itinerario (cuadrilla_id, fecha, turno, estado, observaciones)
-        VALUES (p_cuadrilla_id, p_fecha, 'MAÑANA', 'PLANIFICADO', 
+        INSERT INTO itinerario (cuadrilla_id, fecha, estado, observaciones)
+        VALUES (p_cuadrilla_id, p_fecha, 'PLANIFICADO', 
                 'Itinerario automático - Diciembre 2025')
         RETURNING itinerario_id INTO v_itinerario_id;
     END IF;
