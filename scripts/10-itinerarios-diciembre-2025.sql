@@ -146,12 +146,13 @@ BEGIN
     RETURNING ot_id INTO v_ot_id;
     
     -- Vincular OT al itinerario
-    INSERT INTO itinerario_detalle (itinerario_id, ot_id, orden, estado)
+    INSERT INTO itinerario_det (itinerario_id, ot_id, orden, completada, observaciones)
     VALUES (
         v_itinerario_id,
         v_ot_id,
-        (SELECT COALESCE(MAX(orden), 0) + 1 FROM itinerario_detalle WHERE itinerario_id = v_itinerario_id),
-        'PENDIENTE'
+        (SELECT COALESCE(MAX(orden), 0) + 1 FROM itinerario_det WHERE itinerario_id = v_itinerario_id),
+        false,
+        'OT agregada automaticamente'
     );
     
 END;
