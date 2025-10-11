@@ -2,7 +2,7 @@
 
 Base de datos PostgreSQL para sistema de gestion de cooperativa electrica de la PPIV.
 
-**🆕 Versión 1.9:** Incluye 6 OTs liberadas por defecto para el sistema de itinerarios de cuadrillas.
+**Version 1.11:** Incluye itinerarios completos de diciembre 2025 (45 OTs) + 6 OTs liberadas en datos base.
 
 ---
 
@@ -52,8 +52,9 @@ scripts/
 ├── 04-datos-prueba.sql                     # Inserta datos de ejemplo
 ├── 05-usuarios.sql                         # Crea 19 usuarios con autenticacion bcrypt
 ├── 06-reclamos-pedro.sql                   # 20 reclamos tecnicos para operario Pedro
+├── 10-itinerarios-diciembre-2025.sql       # Itinerarios de prueba diciembre 2025 (45 OTs)
 │
-├── 🆕 SISTEMA DE ITINERARIOS DE CUADRILLAS:
+├── SISTEMA DE ITINERARIOS DE CUADRILLAS:
 ├── 07-preparar-itinerarios.sql             # Libera OTs para itinerarios (con reportes)
 ├── 07b-liberar-ots-rapido.sql              # Version rapida (sin reportes)
 ├── 07c-consultar-estado-itinerarios.sql    # Solo consulta (no modifica)

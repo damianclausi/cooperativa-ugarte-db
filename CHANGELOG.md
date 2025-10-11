@@ -1,5 +1,37 @@
 # Changelog - Cooperativa Eléctrica "Gobernador Ugarte" DB
 
+## [1.11] - 2025-10-11
+
+### Agregado
+- **Script 10-itinerarios-diciembre-2025.sql**: Itinerarios completos para diciembre 2025
+- 45 OTs distribuidas en 15 fechas laborables
+- 30 OTs asignadas a Pedro (empleado_id = 1)
+- 15 OTs disponibles para tomar (empleado_id = NULL)
+- Funcion auxiliar crear_ot_con_itinerario() para generacion automatica
+- Verificacion automatica de prerequisitos (cuadrillas, empleados, tipos de reclamos)
+- Reporte final con estadisticas de itinerarios creados
+
+### Distribucion por Fecha
+- 3 OTs totales por fecha
+- 2 OTs asignadas a Pedro
+- 1 OT disponible para tomar
+- Fechas: 02, 03, 04, 05, 09, 10, 11, 12, 16, 17, 18, 19, 22, 23, 26 de diciembre 2025
+
+### Tipos de Reclamos
+- Corte de luz en sector residencial
+- Baja tension en zona comercial
+- Poste inclinado o deteriorado
+- Cable cortado o en mal estado
+- Medidor defectuoso
+
+### Beneficio
+- Base de datos lista con itinerarios completos de un mes
+- Distribucion realista para probar flujo completo del sistema
+- No requiere ejecutar scripts adicionales despues del despliegue
+- Permite probar asignacion, toma de OTs y trabajo en itinerarios
+
+---
+
 ## [1.10] - 2025-10-10
 
 ### Agregado
