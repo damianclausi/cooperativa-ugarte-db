@@ -2,7 +2,7 @@
 
 Base de datos PostgreSQL para sistema de gestion de cooperativa electrica de la PPIV.
 
-**Version 1.11:** Incluye itinerarios completos de diciembre 2025 (45 OTs) + 6 OTs liberadas en datos base.
+**Version 1.12:** Sistema completo de valoraciones con estrellas (1-5) para reclamos resueltos + itinerarios diciembre 2025.
 
 ---
 
@@ -53,6 +53,8 @@ scripts/
 ├── 05-usuarios.sql                         # Crea 19 usuarios con autenticacion bcrypt
 ├── 06-reclamos-pedro.sql                   # 20 reclamos tecnicos para operario Pedro
 ├── 10-itinerarios-diciembre-2025.sql       # Itinerarios de prueba diciembre 2025 (45 OTs)
+├── 11-valoraciones.sql                     # Sistema de valoraciones con estrellas (1-5)
+├── 11-valoraciones-rollback.sql            # Script de rollback para valoraciones
 │
 ├── SISTEMA DE ITINERARIOS DE CUADRILLAS:
 ├── 07-preparar-itinerarios.sql             # Libera OTs para itinerarios (con reportes)

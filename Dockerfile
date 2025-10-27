@@ -4,7 +4,7 @@ FROM postgres:15-alpine
 # Información del mantenedor
 LABEL maintainer="Cooperativa Eléctrica Gobernador Ugarte"
 LABEL description="Base de datos PostgreSQL para sistema de gestión cooperativa eléctrica"
-LABEL version="1.11"
+LABEL version="1.12"
 
 # Variables de entorno por defecto
 ENV POSTGRES_DB=cooperativa_ugarte_db
@@ -20,6 +20,7 @@ COPY scripts/04-datos-prueba.sql /docker-entrypoint-initdb.d/04-datos-prueba.sql
 COPY scripts/05-usuarios.sql /docker-entrypoint-initdb.d/05-usuarios.sql
 COPY scripts/06-reclamos-pedro.sql /docker-entrypoint-initdb.d/06-reclamos-pedro.sql
 COPY scripts/10-itinerarios-diciembre-2025.sql /docker-entrypoint-initdb.d/10-itinerarios-diciembre-2025.sql
+COPY scripts/11-valoraciones.sql /docker-entrypoint-initdb.d/11-valoraciones.sql
 
 # Configurar timezone
 RUN apk add --no-cache tzdata && \

@@ -1,5 +1,43 @@
 # Changelog - Cooperativa Eléctrica "Gobernador Ugarte" DB
 
+## [1.12] - 2025-10-27
+
+### Agregado
+- **Sistema de valoraciones de reclamos resueltos**: Nueva tabla valoracion para calificacion con estrellas
+- Tabla valoracion con campos: valoracion_id, reclamo_id, socio_id, calificacion (1-5), comentario, fecha_valoracion
+- Trigger validar_reclamo_para_valoracion: Valida que solo reclamos RESUELTO/CERRADO puedan valorarse
+- Restriccion UNIQUE(reclamo_id, socio_id): Un socio puede valorar cada reclamo una sola vez
+- Vista v_estadisticas_valoraciones: Estadisticas generales del sistema
+- Vista v_valoraciones_detalle: Valoraciones con datos completos de reclamo y socio
+- Vista v_valoraciones_por_tipo_reclamo: Promedios agrupados por tipo de reclamo
+- Vista v_valoraciones_por_empleado: Rankings de empleados mejor valorados
+- 5 indices optimizados para consultas frecuentes
+- 8 valoraciones de prueba con calificaciones variadas (1-5 estrellas)
+- Script de rollback completo (11-valoraciones-rollback.sql)
+
+### Indices
+- idx_valoracion_reclamo: Consultas por reclamo
+- idx_valoracion_socio: Consultas por socio
+- idx_valoracion_calificacion: Reportes estadisticos
+- idx_valoracion_fecha: Consultas temporales
+- idx_valoracion_reclamo_fecha: Consultas compuestas optimizadas
+
+### Validaciones
+- Solo reclamos en estado RESUELTO o CERRADO pueden ser valorados
+- Solo el socio titular de la cuenta puede valorar el reclamo
+- Calificacion obligatoria entre 1 y 5 estrellas
+- Comentario opcional (TEXT)
+- Previene valoraciones duplicadas del mismo socio al mismo reclamo
+
+### Beneficio
+- Permite medir satisfaccion del cliente con el servicio
+- Feedback directo de los socios sobre la atencion recibida
+- Metricas de calidad por tipo de reclamo y por empleado
+- Identificacion de areas de mejora
+- Sistema completo con datos de prueba desde el primer despliegue
+
+---
+
 ## [1.11] - 2025-10-11
 
 ### Agregado
