@@ -143,16 +143,16 @@ INSERT INTO reclamo (cuenta_id, detalle_id, prioridad_id, descripcion, canal) VA
 -- Insertar órdenes de trabajo (Cooperativa Eléctrica)
 -- NOTA: Algunas OTs tienen empleado_id = NULL para estar disponibles en el sistema de itinerarios
 INSERT INTO orden_trabajo (reclamo_id, empleado_id, fecha_programada, estado, direccion_intervencion, observaciones) VALUES
-(1, 1, '2024-10-02 09:00:00', 'EN CURSO', 'Av. San Martín 1234', NULL),
-(2, 3, '2024-10-02 14:00:00', 'COMPLETADA', 'Calle Belgrano 567', NULL),
+(1, 1, '2024-10-02 09:00:00', 'EN CURSO', 'Av. Hipólito Yrigoyen 1234', NULL),
+(2, 3, '2024-10-02 14:00:00', 'COMPLETADA', 'Belgrano 987', NULL),
 (3, 1, '2024-10-03 10:00:00', 'ASIGNADA', 'Sarmiento 456', NULL),
 (4, NULL, '2024-10-03 15:00:00', 'PENDIENTE', 'Mitre 123', 'Disponible para asignación a itinerario'),
-(5, NULL, '2024-10-04 08:00:00', 'PENDIENTE', 'Tucumán 987', 'Disponible para asignación a itinerario'),
-(6, 10, '2024-10-01 20:00:00', 'COMPLETADA', 'Calle Belgrano 567', NULL),
+(5, NULL, '2024-10-04 08:00:00', 'PENDIENTE', 'Av. Pueyrredón 890', 'Disponible para asignación a itinerario'),
+(6, 10, '2024-10-01 20:00:00', 'COMPLETADA', 'San Martín 567', NULL),
 (7, NULL, '2024-10-05 10:00:00', 'PENDIENTE', 'Moreno 789', 'Disponible para asignación a itinerario'),
-(8, 6, '2024-10-04 14:00:00', 'ASIGNADA', 'Córdoba 654', NULL),
-(9, 8, '2024-10-03 16:00:00', 'EN CURSO', 'Córdoba 654', NULL),
-(10, 10, '2024-10-02 08:00:00', 'COMPLETADA', 'Roca 456', NULL);
+(8, 6, '2024-10-04 14:00:00', 'ASIGNADA', '25 de Mayo 654', NULL),
+(9, 8, '2024-10-03 16:00:00', 'EN CURSO', '25 de Mayo 654', NULL),
+(10, 10, '2024-10-02 08:00:00', 'COMPLETADA', 'Av. Del Libertador 456', NULL);
 
 -- Insertar itinerarios
 INSERT INTO itinerario (cuadrilla_id, fecha, observaciones) VALUES
