@@ -17,20 +17,20 @@ INSERT INTO socio (nombre, apellido, dni, email, telefono) VALUES
 ('Diego Sebastián', 'Herrera', '26345678', 'diego.herrera@gmail.com', '2226123789'),
 ('Silvia Mónica', 'Castro', '30456789', 'silvia.castro@yahoo.com', '2226234890');
 
--- Insertar cuentas de prueba (Cooperativa Eléctrica)
+-- Insertar cuentas de prueba (Cooperativa Eléctrica - Calles reales de Gobernador Ugarte)
 INSERT INTO cuenta (socio_id, numero_cuenta, direccion, localidad, servicio_id, principal) VALUES
-(1, '001001', 'Av. San Martín 1234', 'Gobernador Ugarte', 4, true),
-(2, '001002', 'Calle Belgrano 567', 'Gobernador Ugarte', 4, true),
-(3, '001003', 'Rivadavia 890', 'Gobernador Ugarte', 4, true),
+(1, '001001', 'Av. Hipólito Yrigoyen 1234', 'Gobernador Ugarte', 4, true),
+(2, '001002', 'San Martín 567', 'Gobernador Ugarte', 4, true),
+(3, '001003', 'Av. Pueyrredón 890', 'Gobernador Ugarte', 4, true),
 (4, '001004', 'Mitre 123', 'Gobernador Ugarte', 4, true),
 (5, '001005', 'Sarmiento 456', 'Gobernador Ugarte', 4, true),
 (6, '001006', 'Moreno 789', 'Gobernador Ugarte', 4, true),
 (7, '001007', 'Alsina 321', 'Gobernador Ugarte', 4, true),
-(8, '001008', 'Córdoba 654', 'Gobernador Ugarte', 4, true),
-(9, '001009', 'Tucumán 987', 'Gobernador Ugarte', 4, true),
-(10, '001010', 'Roca 456', 'Gobernador Ugarte', 4, true),
-(11, '001011', 'Lavalle 789', 'Gobernador Ugarte', 4, true),
-(12, '001012', 'Urquiza 321', 'Gobernador Ugarte', 4, true);
+(8, '001008', '25 de Mayo 654', 'Gobernador Ugarte', 4, true),
+(9, '001009', 'Belgrano 987', 'Gobernador Ugarte', 4, true),
+(10, '001010', 'Av. Del Libertador 456', 'Gobernador Ugarte', 4, true),
+(11, '001011', 'Rivadavia 789', 'Gobernador Ugarte', 4, true),
+(12, '001012', 'Uruguay 321', 'Gobernador Ugarte', 4, true);
 
 -- Insertar medidores de prueba (Medidores eléctricos)
 INSERT INTO medidor (cuenta_id, numero_medidor, lat, lng, fecha_instalacion) VALUES

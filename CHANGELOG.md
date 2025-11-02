@@ -1,5 +1,13 @@
 # Changelog - Cooperativa Eléctrica "Gobernador Ugarte" DB
 
+## [1.12.1] - 2025-11-02
+
+### Modificado
+- Actualizado direcciones de cuentas con calles reales de Gobernador Ugarte, Buenos Aires
+- Calles incluidas: Av. Hipolito Yrigoyen, San Martin, Av. Pueyrredon, Mitre, Sarmiento, Moreno, Alsina, 25 de Mayo, Belgrano, Av. Del Libertador, Rivadavia, Uruguay
+
+---
+
 ## [1.12] - 2025-10-27
 
 ### Agregado
